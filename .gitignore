@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# PyCharm / IDE
+.idea/
+*.iml
+*.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+#автосохранения (чтобы не засорять историю коммитами от программы)
+data/autosave.json
