@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <records>
+    <record>
+      <student_fio>Иванов Иван Алексеевич</student_fio>
+      <father_fio>Иванов Петр Дмитриевич</father_fio>
+      <father_earnings>4500.0</father_earnings>
+      <mother_fio>Иванова Мария Сергеевна</mother_fio>
+      <mother_earnings>3800.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Петров Петр Дмитриевич</student_fio>
+      <father_fio>Петров Алексей Сергеевич</father_fio>
+      <father_earnings>4625.5</father_earnings>
+      <mother_fio>Петрова Анна Михайловна</mother_fio>
+      <mother_earnings>3898.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Сидоров Алексей Сергеевич</student_fio>
+      <father_fio>Сидоров Дмитрий Михайлович</father_fio>
+      <father_earnings>4751.0</father_earnings>
+      <mother_fio>Сидорова Елена Ивановна</mother_fio>
+      <mother_earnings>3997.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Козлов Дмитрий Михайлович</student_fio>
+      <father_fio>Козлов Сергей Иванович</father_fio>
+      <father_earnings>4876.5</father_earnings>
+      <mother_fio>Козлова Ольга Петровна</mother_fio>
+      <mother_earnings>4096.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Новиков Сергей Иванович</student_fio>
+      <father_fio>Новиков Михаил Петрович</father_fio>
+      <father_earnings>5002.0</father_earnings>
+      <mother_fio>Новикова Татьяна Алексеевна</mother_fio>
+      <mother_earnings>4195.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Морозов Михаил Петрович</student_fio>
+      <father_fio>Морозов Андрей Алексеевич</father_fio>
+      <father_earnings>5127.5</father_earnings>
+      <mother_fio>Морозова Наталья Дмитриевна</mother_fio>
+      <mother_earnings>4293.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Волков Андрей Алексеевич</student_fio>
+      <father_fio>Волков Николай Дмитриевич</father_fio>
+      <father_earnings>5253.0</father_earnings>
+      <mother_fio>Волкова Ирина Сергеевна</mother_fio>
+      <mother_earnings>4392.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Лебедев Николай Дмитриевич</student_fio>
+      <father_fio>Лебедев Владимир Сергеевич</father_fio>
+      <father_earnings>5378.5</father_earnings>
+      <mother_fio>Лебедева Светлана Михайловна</mother_fio>
+      <mother_earnings>4491.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Соколов Владимир Сергеевич</student_fio>
+      <father_fio>Соколов Павел Михайлович</father_fio>
+      <father_earnings>5504.0</father_earnings>
+      <mother_fio>Соколова Юлия Ивановна</mother_fio>
+      <mother_earnings>4590.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Попов Павел Михайлович</student_fio>
+      <father_fio>Попов Иван Иванович</father_fio>
+      <father_earnings>5629.5</father_earnings>
+      <mother_fio>Попова Екатерина Петровна</mother_fio>
+      <mother_earnings>4688.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Иванов Иван Иванович</student_fio>
+      <father_fio>Иванов Петр Петрович</father_fio>
+      <father_earnings>5755.0</father_earnings>
+      <mother_fio>Иванова Мария Алексеевна</mother_fio>
+      <mother_earnings>4787.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Петров Петр Петрович</student_fio>
+      <father_fio>Петров Алексей Алексеевич</father_fio>
+      <father_earnings>5880.5</father_earnings>
+      <mother_fio>Петрова Анна Дмитриевна</mother_fio>
+      <mother_earnings>4886.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Сидоров Алексей Алексеевич</student_fio>
+      <father_fio>Сидоров Дмитрий Дмитриевич</father_fio>
+      <father_earnings>6006.0</father_earnings>
+      <mother_fio>Сидорова Елена Сергеевна</mother_fio>
+      <mother_earnings>4985.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Козлов Дмитрий Дмитриевич</student_fio>
+      <father_fio>Козлов Сергей Сергеевич</father_fio>
+      <father_earnings>6131.5</father_earnings>
+      <mother_fio>Козлова Ольга Михайловна</mother_fio>
+      <mother_earnings>5083.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Новиков Сергей Сергеевич</student_fio>
+      <father_fio>Новиков Михаил Михайлович</father_fio>
+      <father_earnings>6257.0</father_earnings>
+      <mother_fio>Новикова Татьяна Ивановна</mother_fio>
+      <mother_earnings>5182.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Морозов Михаил Михайлович</student_fio>
+      <father_fio>Морозов Андрей Иванович</father_fio>
+      <father_earnings>6382.5</father_earnings>
+      <mother_fio>Морозова Наталья Петровна</mother_fio>
+      <mother_earnings>5281.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Волков Андрей Иванович</student_fio>
+      <father_fio>Волков Николай Петрович</father_fio>
+      <father_earnings>6508.0</father_earnings>
+      <mother_fio>Волкова Ирина Алексеевна</mother_fio>
+      <mother_earnings>5380.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Лебедев Николай Петрович</student_fio>
+      <father_fio>Лебедев Владимир Алексеевич</father_fio>
+      <father_earnings>6633.5</father_earnings>
+      <mother_fio>Лебедева Светлана Дмитриевна</mother_fio>
+      <mother_earnings>5478.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Соколов Владимир Алексеевич</student_fio>
+      <father_fio>Соколов Павел Дмитриевич</father_fio>
+      <father_earnings>6759.0</father_earnings>
+      <mother_fio>Соколова Юлия Сергеевна</mother_fio>
+      <mother_earnings>5577.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Попов Павел Дмитриевич</student_fio>
+      <father_fio>Попов Иван Сергеевич</father_fio>
+      <father_earnings>6884.5</father_earnings>
+      <mother_fio>Попова Екатерина Михайловна</mother_fio>
+      <mother_earnings>5676.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Иванов Иван Сергеевич</student_fio>
+      <father_fio>Иванов Петр Михайлович</father_fio>
+      <father_earnings>7010.0</father_earnings>
+      <mother_fio>Иванова Мария Ивановна</mother_fio>
+      <mother_earnings>5775.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Петров Петр Михайлович</student_fio>
+      <father_fio>Петров Алексей Иванович</father_fio>
+      <father_earnings>7135.5</father_earnings>
+      <mother_fio>Петрова Анна Петровна</mother_fio>
+      <mother_earnings>5873.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Сидоров Алексей Иванович</student_fio>
+      <father_fio>Сидоров Дмитрий Петрович</father_fio>
+      <father_earnings>7261.0</father_earnings>
+      <mother_fio>Сидорова Елена Алексеевна</mother_fio>
+      <mother_earnings>5972.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Козлов Дмитрий Петрович</student_fio>
+      <father_fio>Козлов Сергей Алексеевич</father_fio>
+      <father_earnings>7386.5</father_earnings>
+      <mother_fio>Козлова Ольга Дмитриевна</mother_fio>
+      <mother_earnings>6071.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Новиков Сергей Алексеевич</student_fio>
+      <father_fio>Новиков Михаил Дмитриевич</father_fio>
+      <father_earnings>7512.0</father_earnings>
+      <mother_fio>Новикова Татьяна Сергеевна</mother_fio>
+      <mother_earnings>6170.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Морозов Михаил Дмитриевич</student_fio>
+      <father_fio>Морозов Андрей Сергеевич</father_fio>
+      <father_earnings>7637.5</father_earnings>
+      <mother_fio>Морозова Наталья Михайловна</mother_fio>
+      <mother_earnings>6268.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Волков Андрей Сергеевич</student_fio>
+      <father_fio>Волков Николай Михайлович</father_fio>
+      <father_earnings>7763.0</father_earnings>
+      <mother_fio>Волкова Ирина Ивановна</mother_fio>
+      <mother_earnings>6367.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Лебедев Николай Михайлович</student_fio>
+      <father_fio>Лебедев Владимир Иванович</father_fio>
+      <father_earnings>7888.5</father_earnings>
+      <mother_fio>Лебедева Светлана Петровна</mother_fio>
+      <mother_earnings>6466.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Соколов Владимир Иванович</student_fio>
+      <father_fio>Соколов Павел Петрович</father_fio>
+      <father_earnings>8014.0</father_earnings>
+      <mother_fio>Соколова Юлия Алексеевна</mother_fio>
+      <mother_earnings>6565.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Попов Павел Петрович</student_fio>
+      <father_fio>Попов Иван Алексеевич</father_fio>
+      <father_earnings>8139.5</father_earnings>
+      <mother_fio>Попова Екатерина Дмитриевна</mother_fio>
+      <mother_earnings>6663.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Иванов Иван Алексеевич</student_fio>
+      <father_fio>Иванов Петр Дмитриевич</father_fio>
+      <father_earnings>8265.0</father_earnings>
+      <mother_fio>Иванова Мария Сергеевна</mother_fio>
+      <mother_earnings>6762.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Петров Петр Дмитриевич</student_fio>
+      <father_fio>Петров Алексей Сергеевич</father_fio>
+      <father_earnings>8390.5</father_earnings>
+      <mother_fio>Петрова Анна Михайловна</mother_fio>
+      <mother_earnings>6861.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Сидоров Алексей Сергеевич</student_fio>
+      <father_fio>Сидоров Дмитрий Михайлович</father_fio>
+      <father_earnings>8516.0</father_earnings>
+      <mother_fio>Сидорова Елена Ивановна</mother_fio>
+      <mother_earnings>6960.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Козлов Дмитрий Михайлович</student_fio>
+      <father_fio>Козлов Сергей Иванович</father_fio>
+      <father_earnings>8641.5</father_earnings>
+      <mother_fio>Козлова Ольга Петровна</mother_fio>
+      <mother_earnings>7058.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Новиков Сергей Иванович</student_fio>
+      <father_fio>Новиков Михаил Петрович</father_fio>
+      <father_earnings>8767.0</father_earnings>
+      <mother_fio>Новикова Татьяна Алексеевна</mother_fio>
+      <mother_earnings>7157.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Морозов Михаил Петрович</student_fio>
+      <father_fio>Морозов Андрей Алексеевич</father_fio>
+      <father_earnings>8892.5</father_earnings>
+      <mother_fio>Морозова Наталья Дмитриевна</mother_fio>
+      <mother_earnings>7256.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Волков Андрей Алексеевич</student_fio>
+      <father_fio>Волков Николай Дмитриевич</father_fio>
+      <father_earnings>9018.0</father_earnings>
+      <mother_fio>Волкова Ирина Сергеевна</mother_fio>
+      <mother_earnings>7355.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Лебедев Николай Дмитриевич</student_fio>
+      <father_fio>Лебедев Владимир Сергеевич</father_fio>
+      <father_earnings>9143.5</father_earnings>
+      <mother_fio>Лебедева Светлана Михайловна</mother_fio>
+      <mother_earnings>7453.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Соколов Владимир Сергеевич</student_fio>
+      <father_fio>Соколов Павел Михайлович</father_fio>
+      <father_earnings>9269.0</father_earnings>
+      <mother_fio>Соколова Юлия Ивановна</mother_fio>
+      <mother_earnings>7552.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Попов Павел Михайлович</student_fio>
+      <father_fio>Попов Иван Иванович</father_fio>
+      <father_earnings>9394.5</father_earnings>
+      <mother_fio>Попова Екатерина Петровна</mother_fio>
+      <mother_earnings>7651.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Иванов Иван Иванович</student_fio>
+      <father_fio>Иванов Петр Петрович</father_fio>
+      <father_earnings>9520.0</father_earnings>
+      <mother_fio>Иванова Мария Алексеевна</mother_fio>
+      <mother_earnings>7750.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Петров Петр Петрович</student_fio>
+      <father_fio>Петров Алексей Алексеевич</father_fio>
+      <father_earnings>9645.5</father_earnings>
+      <mother_fio>Петрова Анна Дмитриевна</mother_fio>
+      <mother_earnings>7848.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Сидоров Алексей Алексеевич</student_fio>
+      <father_fio>Сидоров Дмитрий Дмитриевич</father_fio>
+      <father_earnings>9771.0</father_earnings>
+      <mother_fio>Сидорова Елена Сергеевна</mother_fio>
+      <mother_earnings>7947.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Козлов Дмитрий Дмитриевич</student_fio>
+      <father_fio>Козлов Сергей Сергеевич</father_fio>
+      <father_earnings>9896.5</father_earnings>
+      <mother_fio>Козлова Ольга Михайловна</mother_fio>
+      <mother_earnings>8046.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Новиков Сергей Сергеевич</student_fio>
+      <father_fio>Новиков Михаил Михайлович</father_fio>
+      <father_earnings>10022.0</father_earnings>
+      <mother_fio>Новикова Татьяна Ивановна</mother_fio>
+      <mother_earnings>8145.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Морозов Михаил Михайлович</student_fio>
+      <father_fio>Морозов Андрей Иванович</father_fio>
+      <father_earnings>10147.5</father_earnings>
+      <mother_fio>Морозова Наталья Петровна</mother_fio>
+      <mother_earnings>8243.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Волков Андрей Иванович</student_fio>
+      <father_fio>Волков Николай Петрович</father_fio>
+      <father_earnings>10273.0</father_earnings>
+      <mother_fio>Волкова Ирина Алексеевна</mother_fio>
+      <mother_earnings>8342.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Лебедев Николай Петрович</student_fio>
+      <father_fio>Лебедев Владимир Алексеевич</father_fio>
+      <father_earnings>10398.5</father_earnings>
+      <mother_fio>Лебедева Светлана Дмитриевна</mother_fio>
+      <mother_earnings>8441.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Соколов Владимир Алексеевич</student_fio>
+      <father_fio>Соколов Павел Дмитриевич</father_fio>
+      <father_earnings>10524.0</father_earnings>
+      <mother_fio>Соколова Юлия Сергеевна</mother_fio>
+      <mother_earnings>8540.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Попов Павел Дмитриевич</student_fio>
+      <father_fio>Попов Иван Сергеевич</father_fio>
+      <father_earnings>10649.5</father_earnings>
+      <mother_fio>Попова Екатерина Михайловна</mother_fio>
+      <mother_earnings>8638.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Иванов Иван Сергеевич</student_fio>
+      <father_fio>Иванов Петр Михайлович</father_fio>
+      <father_earnings>10775.0</father_earnings>
+      <mother_fio>Иванова Мария Ивановна</mother_fio>
+      <mother_earnings>8737.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Петров Петр Михайлович</student_fio>
+      <father_fio>Петров Алексей Иванович</father_fio>
+      <father_earnings>10900.5</father_earnings>
+      <mother_fio>Петрова Анна Петровна</mother_fio>
+      <mother_earnings>8836.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Сидоров Алексей Иванович</student_fio>
+      <father_fio>Сидоров Дмитрий Петрович</father_fio>
+      <father_earnings>11026.0</father_earnings>
+      <mother_fio>Сидорова Елена Алексеевна</mother_fio>
+      <mother_earnings>8935.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Козлов Дмитрий Петрович</student_fio>
+      <father_fio>Козлов Сергей Алексеевич</father_fio>
+      <father_earnings>11151.5</father_earnings>
+      <mother_fio>Козлова Ольга Дмитриевна</mother_fio>
+      <mother_earnings>9033.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Новиков Сергей Алексеевич</student_fio>
+      <father_fio>Новиков Михаил Дмитриевич</father_fio>
+      <father_earnings>11277.0</father_earnings>
+      <mother_fio>Новикова Татьяна Сергеевна</mother_fio>
+      <mother_earnings>9132.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Морозов Михаил Дмитриевич</student_fio>
+      <father_fio>Морозов Андрей Сергеевич</father_fio>
+      <father_earnings>11402.5</father_earnings>
+      <mother_fio>Морозова Наталья Михайловна</mother_fio>
+      <mother_earnings>9231.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Волков Андрей Сергеевич</student_fio>
+      <father_fio>Волков Николай Михайлович</father_fio>
+      <father_earnings>11528.0</father_earnings>
+      <mother_fio>Волкова Ирина Ивановна</mother_fio>
+      <mother_earnings>9330.0</mother_earnings>
+      <brothers_count>0</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+    <record>
+      <student_fio>Лебедев Николай Михайлович</student_fio>
+      <father_fio>Лебедев Владимир Иванович</father_fio>
+      <father_earnings>11653.5</father_earnings>
+      <mother_fio>Лебедева Светлана Петровна</mother_fio>
+      <mother_earnings>9428.75</mother_earnings>
+      <brothers_count>1</brothers_count>
+      <sisters_count>0</sisters_count>
+    </record>
+    <record>
+      <student_fio>Соколов Владимир Иванович</student_fio>
+      <father_fio>Соколов Павел Петрович</father_fio>
+      <father_earnings>11779.0</father_earnings>
+      <mother_fio>Соколова Юлия Алексеевна</mother_fio>
+      <mother_earnings>9527.5</mother_earnings>
+      <brothers_count>2</brothers_count>
+      <sisters_count>1</sisters_count>
+    </record>
+    <record>
+      <student_fio>Попов Павел Петрович</student_fio>
+      <father_fio>Попов Иван Алексеевич</father_fio>
+      <father_earnings>11904.5</father_earnings>
+      <mother_fio>Попова Екатерина Дмитриевна</mother_fio>
+      <mother_earnings>9626.25</mother_earnings>
+      <brothers_count>3</brothers_count>
+      <sisters_count>2</sisters_count>
+    </record>
+  </records>
