@@ -24,7 +24,7 @@ class FamilyRecord:
         return asdict(self) #рекурс преобр записи в словарь
 
     @classmethod
-    def from_dict(cls, data: dict) -> 'FamilyRecord':  # ← переименуйте 'dict' в 'data'
+    def from_dict(cls, data: dict) -> 'FamilyRecord':
         return cls(
             student_fio=str(data.get('student_fio', '')),
             father_fio=str(data.get('father_fio', '')),
