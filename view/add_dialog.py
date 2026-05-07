@@ -3,6 +3,17 @@ from PyQt5.QtWidgets import (
     QSpinBox, QDoubleSpinBox, QPushButton, QHBoxLayout,
     QMessageBox
 )
+'''
+ QDialog,- Диалоговое окно (всплывающее окно, которое блокирует главное окно, пока не закроют)
+ QFormLayout - Менеджер расположения "форма" (две колонки: подпись -> поле ввода)
+ QGroupBox,- Группирующая рамка (визуально объединяет связанные поля)
+ QLineEdit,- Поле ввода текста (одна строка)
+QSpinBox,- Спинбокс для целых чисел (братья, сёстры)
+QDoubleSpinBox,- Спинбокс для вещественных чисел (зарплаты)
+QPushButton,- Кнопка
+QHBoxLayout,- Горизонтальный менеджер расположения (для кнопок Сохранить/Отмена)
+QMessageBox -Всплывающее сообщение (ошибка, предупреждение, информация) 
+'''
 from model import FamilyRecord
 from .validators import Validators
 
@@ -11,7 +22,7 @@ class AddDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Добавить новую запись")
-        self.setModal(True)
+        self.setModal(True)#блокирует главное окно, пока диалог не закроют
         self.resize(450, 450)
         self.validators = Validators()
         self._create_ui()
@@ -65,8 +76,8 @@ class AddDialog(QDialog):
         self.spin_sisters.setValue(0)
         layout_siblings.addRow("Число сестер:", self.spin_sisters)
         layout.addRow(group_siblings)
-
-        btn_layout = QHBoxLayout()
+     #Кнопки "Сохранить" и "Отмена"
+        btn_layout = QHBoxLayout()#горизонтальный менеджер расположения (кнопки будут в ряд)
         btn_save = QPushButton("Сохранить")
         btn_save.clicked.connect(self._on_save)
         btn_cancel = QPushButton("Отмена")
@@ -118,7 +129,7 @@ class AddDialog(QDialog):
             return
 
         self.accept()
-
+     #вызывается после успешного сохранения (если accept() был вызван) и возвращает объект FamilyRecord, созданный из полей диалога
     def get_record(self) -> FamilyRecord:
         return FamilyRecord(
             student_fio=self.edit_student.text().strip(),

@@ -1,10 +1,11 @@
 from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QGroupBox,
-    QFormLayout, QLabel, QLineEdit, QDoubleSpinBox,
-    QSpinBox, QPushButton, QListWidget, QListWidgetItem,
-    QMessageBox
+    QFormLayout, QLabel, QLineEdit, QDoubleSpinBox,#Спинбокс для вещественных чисел (зарплаты)
+    QSpinBox, QPushButton, QListWidget, #Список (элементы вертикально)
+    QListWidgetItem,#Один элемент списка
+    QMessageBox#Всплывающее сообщение
 )
-from typing import List, Set
+from typing import List
 from model import FamilyRecord
 
 
@@ -79,22 +80,22 @@ class DeleteDialog(QDialog):
         layout_found = QVBoxLayout(group_found)
 
         self.list_widget = QListWidget()
-        self.list_widget.setSelectionMode(QListWidget.MultiSelection)
+        self.list_widget.setSelectionMode(QListWidget.MultiSelection)#режим выделения: множественный выбор
         layout_found.addWidget(self.list_widget)
         layout.addWidget(group_found)
 
         btn_actions = QHBoxLayout()
-        btn_select_all = QPushButton("✓ Все")
+        btn_select_all = QPushButton("Все")
         btn_select_all.clicked.connect(self._select_all)
-        btn_deselect_all = QPushButton("✗ Снять")
+        btn_deselect_all = QPushButton("Снять")
         btn_deselect_all.clicked.connect(self._deselect_all)
-        btn_delete = QPushButton(" Удалить выбранные")
+        btn_delete = QPushButton("Удалить выбранные")
         btn_delete.setStyleSheet("background-color: #f44336; color: white; padding: 8px; font-weight: bold;")
         btn_delete.clicked.connect(self._on_delete)
         btn_cancel = QPushButton(" Отмена")
-        btn_cancel.clicked.connect(self.reject)
+        btn_cancel.clicked.connect(self.reject)#подключаем к reject() (закрыть без удаления)
 
-        for btn in [btn_select_all, btn_deselect_all, btn_delete, btn_cancel]:
+        for btn in [btn_select_all, btn_deselect_all, btn_delete, btn_cancel]:# все кнопки в горизонтальный менеджер
             btn_actions.addWidget(btn)
 
         layout.addLayout(btn_actions)
@@ -113,7 +114,7 @@ class DeleteDialog(QDialog):
     def _deselect_all(self):
         self.list_widget.clearSelection()
 
-    def _on_delete(self):
+    def _on_delete(self):#удалить выбранные
         if not self.get_selected_indices():
             QMessageBox.warning(self, "Внимание", "Выберите хотя бы одну запись!")
             return
@@ -127,7 +128,7 @@ class DeleteDialog(QDialog):
         if reply == QMessageBox.Yes:
             self.done(2)
 
-    def _no_conditions(self) -> bool:
+    def _no_conditions(self) -> bool:#проверка пустых уловий
         return (
                 not self.cond_student.text().strip() and
                 not self.cond_father.text().strip() and
@@ -169,6 +170,6 @@ class DeleteDialog(QDialog):
             QMessageBox.information(self, "Поиск", "Записи не найдены.")
 
     def get_selected_indices(self) -> List[int]:
-        """Возвращает индексы выбранных элементов в списке диалога"""
-        return [i for i in range(self.list_widget.count())
+        #возвращает индексы выбранных элементов в списке диалога
+        return [i for i in range(self.list_widget.count())#добавляем если элемент выделен
                 if self.list_widget.item(i).isSelected()]

@@ -1,10 +1,11 @@
 from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QGroupBox,
-    QFormLayout, QLabel, QLineEdit, QDoubleSpinBox,
+    QFormLayout, QLabel, QLineEdit,#Поле ввода текста
+    QDoubleSpinBox,#Спинбокс для вещественных чисел
     QSpinBox, QPushButton, QListWidget, QListWidgetItem,
     QMessageBox
 )
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt#содержит константы, используемые в PyQt
 from typing import List, Set
 from model import FamilyRecord
 
@@ -18,7 +19,7 @@ class SearchDialog(QDialog):
         self.results: List[FamilyRecord] = []
         self.current_page = 0
         self.page_size = 10
-        self.selected_indices: Set[int] = set()
+        self.selected_indices: Set[int] = set()#Множество индексов выбранных записей. хранит глобиндексы
         self._create_ui()
 
     def _create_ui(self):
@@ -77,7 +78,7 @@ class SearchDialog(QDialog):
         self.cond_sisters.setValue(0)
         form.addRow("Число сестер:", self.cond_sisters)
 
-        layout.addWidget(group_conditions)
+        layout.addWidget(group_conditions)#добавить группу условий в основной менеджер
 
         btn_search = QPushButton("Найти")
         btn_search.setStyleSheet("background-color: #4CAF50; color: white; padding: 8px; font-weight: bold;")
@@ -102,13 +103,13 @@ class SearchDialog(QDialog):
         self.spin_res_size.setValue(10)
         self.lbl_res_total = QLabel("Всего: 0")
 
-        for w in [self.btn_res_first, self.btn_res_prev, self.lbl_res_page,
+        for w in [self.btn_res_first, self.btn_res_prev, self.lbl_res_page,    #все элементы в горизонтальный менеджер
                   self.btn_res_next, self.btn_res_last,
                   QLabel("На стр:"), self.spin_res_size, self.lbl_res_total]:
             page_layout.addWidget(w)
 
-        layout_results.addLayout(page_layout)
-        layout.addWidget(group_results)
+        layout_results.addLayout(page_layout)#панель навигации в группу результатов
+        layout.addWidget(group_results)#группу результатов в основной менеджер
 
         btn_actions = QHBoxLayout()
         btn_select_all = QPushButton(" Выбрать все")
@@ -124,7 +125,7 @@ class SearchDialog(QDialog):
             btn_actions.addWidget(btn)
 
         layout.addLayout(btn_actions)
-
+          #выделение всех элементов
     def _select_all(self):
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
@@ -135,7 +136,7 @@ class SearchDialog(QDialog):
         self.list_widget.clearSelection()
 
     def _on_ok(self):
-        selected = [i for i in range(self.list_widget.count())
+        selected = [i for i in range(self.list_widget.count())#локальные индексы выбранных элементов (внутри текущей страницы)
                     if self.list_widget.item(i).isSelected()]
 
         if not selected:
@@ -208,14 +209,14 @@ class SearchDialog(QDialog):
                     f"  Мать: {record.mother_fio} ({record.mother_earnings:.2f})\n"
                     f"  Братьев: {record.brothers_count}, Сестер: {record.sisters_count}")
 
-            item = QListWidgetItem(text)
-            item.setData(Qt.UserRole, global_idx)
+            item = QListWidgetItem(text)#элемент списка
+            item.setData(Qt.UserRole, global_idx)#сохранить глобальный индекс в элементе
 
-            if global_idx in self.selected_indices:
+            if global_idx in self.selected_indices:#Если этот глобальный индекс уже был выбран ранее - восстанавливаем выделение
                 item.setSelected(True)
 
             self.list_widget.addItem(item)
-
+            #Обновление навигационных элементов
         self.lbl_res_page.setText(f"Стр. {self.current_page + 1} из {total_pages}")
         self.lbl_res_total.setText(f"Всего: {total}")
 
@@ -229,7 +230,7 @@ class SearchDialog(QDialog):
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
             if item and item.isSelected():
-                idx = item.data(Qt.UserRole)
+                idx = item.data(Qt.UserRole)# извлечь сохранённый глобальный индекс
                 if 0 <= idx < len(self.results):
                     selected.append(self.results[idx])
         return selected

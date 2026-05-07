@@ -1,13 +1,11 @@
-import re
+import re #для работы с регулярными выражениями(шаблон поиска и проверки текста)
 
 
 class Validators:
-    """Валидаторы для полей ввода"""
 
     @staticmethod
     def validate_fio(text: str, field_name: str = "ФИО"):
-        """Проверка ФИО"""
-        if not text.strip():
+        if not text.strip():#фио может быть пустым, но не дял всех 3
             return True, ""
 
         text = text.strip()
@@ -25,7 +23,6 @@ class Validators:
 
     @staticmethod
     def validate_earnings(value: float, field_name: str = "Заработок"):
-        """Проверка заработка"""
         if value < 0:
             return False, f"{field_name} не может быть отрицательным"
 
@@ -36,7 +33,6 @@ class Validators:
 
     @staticmethod
     def validate_count(value: int, field_name: str = "Количество"):
-        """Проверка количества"""
         if value < 0:
             return False, f"{field_name} не может быть отрицательным"
 
@@ -46,9 +42,8 @@ class Validators:
         return True, ""
 
     @staticmethod
-    def validate_search_conditions(conditions: dict):
-        """Проверка условий поиска"""
-        filled = 0
+    def validate_search_conditions(conditions: dict):#проверка условий поиска
+        filled = 0 #счетчик заполненных условий
         for value in conditions.values():
             if value and (isinstance(value, str) and value.strip() or
                           isinstance(value, (int, float)) and value != 0 or

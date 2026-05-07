@@ -1,25 +1,17 @@
 import sys
-from pathlib import Path
 from PyQt5.QtWidgets import QApplication, QMessageBox, QFileDialog
-from model import DataManager, FamilyRecord
-from view import MainWindow, AddDialog, SearchDialog, DeleteDialog, SelectionDialog, Validators
-"""
-from view.main_window import MainWindow
-from view.add_dialog import AddDialog
-from view.search_dialog import SearchDialog
-from view.delete_dialog import DeleteDialog
-from view.selection_dialog import SelectionDialog
-from view.validators import Validators
-"""
+from model import DataManager
+from view import MainWindow, AddDialog, SearchDialog, DeleteDialog, Validators
+
 class AppController:
     def __init__(self):
-        self.app = QApplication(sys.argv)
+        self.app = QApplication(sys.argv)#главный объект приложения (управляет циклом обработки событий)
         self.window = MainWindow()
         self.data_manager = DataManager()
         self.validators = Validators()
-        self._connect_signals()
+        self._connect_signals()#для подключения событий к обработчикам
         self._auto_load_xmls()
-        self._refresh_main_table()
+        self._refresh_main_table()#для обновления таблицы в главном окне
 
     def _auto_load_xmls(self):
         xml_files = list(self.data_manager.data_dir.glob("*.xml"))
@@ -27,20 +19,20 @@ class AppController:
             total = sum(self.data_manager.load_single_xml(str(f)) for f in xml_files)
             print(f"Автозагрузка: {total} записей из {len(xml_files)} файлов")
 
-    def _connect_signals(self):
+    def _connect_signals(self):#подключение всех событий от интерфейса к обработчикам
         self.window.action_add.triggered.connect(self.add_record)
         self.window.action_search.triggered.connect(self.search_records)
         self.window.action_delete.triggered.connect(self.delete_records)
         self.window.action_load.triggered.connect(self.load_file)
         self.window.action_save.triggered.connect(self.save_file)
         self.window.action_clear.triggered.connect(self.clear_all)
-        self.window.action_exit.triggered.connect(self.app.quit)
-
+        self.window.action_exit.triggered.connect(self.app.quit)#выход из приложения
+#кнопки навигации по страницам
         self.window.btn_first.clicked.connect(lambda: self._go_to_page(0))
         self.window.btn_prev.clicked.connect(lambda: self._go_to_page(self.window.current_page - 1))
         self.window.btn_next.clicked.connect(lambda: self._go_to_page(self.window.current_page + 1))
         self.window.btn_last.clicked.connect(self._go_to_last_page)
-        self.window.spin_page_size.valueChanged.connect(self._on_page_size_changed)
+        self.window.spin_page_size.valueChanged.connect(self._on_page_size_changed)#изменение количества записей на странице
 
     def _go_to_page(self, page: int):
         total_pages = max(1, (len(self.data_manager.records) + self.window.page_size - 1) // self.window.page_size)
@@ -51,8 +43,8 @@ class AppController:
         total_pages = max(1, (len(self.data_manager.records) + self.window.page_size - 1) // self.window.page_size)
         self._go_to_page(total_pages - 1)
 
-    def _on_page_size_changed(self):
-        self.window.page_size = self.window.spin_page_size.value()
+    def _on_page_size_changed(self):#когда меняется кол записей на странице
+        self.window.page_size = self.window.spin_page_size.value()#обновляется сохранненый размер страницы(новое значение из спинбокса)
         self.window.current_page = 0
         self._refresh_main_table()
 
@@ -62,7 +54,7 @@ class AppController:
 
     def add_record(self):
         dialog = AddDialog(self.window)
-        if dialog.exec_() == AddDialog.Accepted:
+        if dialog.exec_() == AddDialog.Accepted:#1-если на диалог пользователь нажал ок-продолжаем , 0-если отмена
             try:
                 record = dialog.get_record()
                 if record.is_empty():
@@ -75,7 +67,7 @@ class AppController:
 
     def search_records(self):
         dialog = SearchDialog(self.window)
-        if dialog.exec_() == SearchDialog.Accepted:
+        if dialog.exec_() == SearchDialog.Accepted:#если нажал ок в диалоге
             conditions = dialog.get_conditions()
             valid, msg = self.validators.validate_search_conditions(conditions)
             if not valid:
@@ -84,20 +76,20 @@ class AppController:
                 results = self.data_manager.search(conditions)
                 if not results:
                     return QMessageBox.information(self.window, "Поиск", " Записи не найдены.")
-
-                dialog.show_results(results)
+#подключение навигации в диалоге поиска
+                dialog.show_results(results)#передает найденные записи в диалог поиска (чтобы он мог их отобразить в списке выбора)
                 dialog.btn_res_first.clicked.connect(lambda: self._search_page(dialog, 0))
                 dialog.btn_res_prev.clicked.connect(lambda: self._search_page(dialog, dialog.current_page - 1))
                 dialog.btn_res_next.clicked.connect(lambda: self._search_page(dialog, dialog.current_page + 1))
                 dialog.btn_res_last.clicked.connect(lambda: self._search_last_page(dialog))
                 dialog.spin_res_size.valueChanged.connect(lambda: self._search_page_size_changed(dialog))
                 dialog.exec_()
-
+#обработка выбранных записей
                 if dialog.get_selected_records():
                     QMessageBox.information(self.window, "Выбрано", f"Выбрано: {len(dialog.get_selected_records())}")
             except Exception as e:
                 QMessageBox.critical(self.window, "Ошибка", f" {e}")
-
+#доп методы для навигации в поиске
     def _search_page(self, dialog, page: int):
         total_pages = max(1, (len(dialog.results) + dialog.page_size - 1) // dialog.page_size)
         dialog.current_page = max(0, min(page, total_pages - 1))
@@ -111,7 +103,7 @@ class AppController:
         dialog.page_size = dialog.spin_res_size.value()
         dialog.current_page = 0
         dialog._update_list()
-
+#удаление записи
     def delete_records(self):
         dialog = DeleteDialog(self.window)
 
@@ -126,23 +118,21 @@ class AppController:
                 dialog.show_found_records(found)
                 if not found: return
 
-                if dialog.exec_() == 2:
-                    # 1. Получаем локальные индексы из диалога
+                if dialog.exec_() == 2:#2-й раз выводит диалог, но со списком найденных записей
+                    #получаем локальные индексы из диалога среди найденных записей
                     selected_local_indices = dialog.get_selected_indices()
                     if not selected_local_indices:
                         return QMessageBox.warning(self.window, "Внимание", " Ничего не выбрано")
 
-                    # 2. Маппим локальные индексы в глобальные (в базе данных)
-                    # Используем проверку 'is', чтобы найти тот же самый объект в памяти
-                    selected_global_indices = []
+                    selected_global_indices = []#список глобал индексов в бд
                     for local_idx in selected_local_indices:
                         selected_rec = found[local_idx]
                         for g_idx, rec in enumerate(self.data_manager.records):
-                            if rec is selected_rec:
+                            if rec is selected_rec: # проверка is, чтобы найти тот же самый объект в памяти
                                 selected_global_indices.append(g_idx)
                                 break
 
-                    # 3. Удаляем по глобальным индексам
+                    # удаление по глобальным индексам
                     if selected_global_indices:
                         deleted = self.data_manager.delete_by_indices(selected_global_indices)
                         self._refresh_main_table()
@@ -175,11 +165,11 @@ class AppController:
     def clear_all(self):
         if not self.data_manager.records:
             return QMessageBox.information(self.window, "Информация", "ℹ Пусто")
-        if QMessageBox.question(self.window, "Подтверждение", " Удалить всё?") == QMessageBox.Yes:
+        if QMessageBox.question(self.window, "Подтверждение", " Удалить всё?") == QMessageBox.Yes:#продолжаем если нажал да
             self.data_manager.clear()
             self._refresh_main_table()
             QMessageBox.information(self.window, "Готово", "Очищено")
 
     def run(self):
         self.window.show()
-        sys.exit(self.app.exec_())
+        sys.exit(self.app.exec_())#бесконечный цикл обработки событий с нормальным завершением без ошибок

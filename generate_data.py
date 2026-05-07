@@ -1,12 +1,11 @@
-import sys
-import shutil
+import shutil#модуль для работы с файлами высокого уровня(удаление  старой папки)
 from pathlib import Path
 from model import DataManager, FamilyRecord
 
 
 def generate_test_data(filename: str, count: int = 55):
     dm = DataManager()
-    dm.records = []  # Гарантируем чистый старт
+    dm.records = []  #гарантируем чистый старт
 
     first_names = ["Иван", "Петр", "Алексей", "Дмитрий", "Сергей", "Михаил", "Андрей", "Николай", "Владимир", "Павел"]
     last_names = ["Иванов", "Петров", "Сидоров", "Козлов", "Новиков", "Морозов", "Волков", "Лебедев", "Соколов",
@@ -17,7 +16,7 @@ def generate_test_data(filename: str, count: int = 55):
 
     for i in range(count):
         idx = i % len(last_names)
-        student = f"{last_names[idx]} {first_names[idx]} {patronymics_m[(i + 2) % len(patronymics_m)]}"
+        student = f"{last_names[idx]} {first_names[idx]} {patronymics_m[(i + 2) % len(patronymics_m)]}"#сдвиг отчества, чтобы не так повторялись фио части
         father = f"{last_names[idx]} {first_names[(i + 1) % len(first_names)]} {patronymics_m[(i + 3) % len(patronymics_m)]}"
         mother = f"{last_names[idx]}а {mothers_names[idx]} {patronymics_f[(i + 4) % len(patronymics_f)]}"
 
@@ -37,7 +36,7 @@ if __name__ == "__main__":
     # Удаляем старую папку data, чтобы избежать дублей
     data_dir = Path("data")
     if data_dir.exists():
-        shutil.rmtree(data_dir)
+        shutil.rmtree(data_dir)#рекурсивное удаление дерева папок
         print("Очищена старая папка data/")
 
     print("Генерация данных...")

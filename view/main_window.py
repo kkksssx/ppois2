@@ -1,15 +1,27 @@
 from PyQt5.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QTableWidget, QTableWidgetItem, QLabel, QPushButton,
-    QSpinBox, QMenuBar, QMenu, QAction, QToolBar, QStatusBar,
-    QAbstractItemView
+    QSpinBox, QAction, QToolBar, QAbstractItemView
 )
+'''
+QMainWindow -Главное окно приложения (с меню, панелями инструментов, статусной строкой)
+QWidget-Базовый виджет (контейнер для других элементов)
+QVBoxLayout- Вертикальное расположение элементов (один под другим)
+QHBoxLayout-Горизонтальное расположение (рядом)
+QTableWidget-Таблица (строки и столбцы)
+QTableWidgetItem-Одна ячейка таблицы
+QLabel-Текстовая метка (надпись)
+QPushButton-Кнопка
+QSpinBox-Спинбокс (поле ввода числа с кнопками)
+QAction-Один пункт меню или кнопка на панели инструментов
+QToolBar-Панель инструментов (с иконками)
+QAbstractItemView-Базовый класс для таблиц (даёт режимы выделения)
+'''
 from typing import List
 from model import FamilyRecord
 
 
 class MainWindow(QMainWindow):
-    """Главное окно приложения"""
 
     def __init__(self):
         super().__init__()
@@ -20,10 +32,10 @@ class MainWindow(QMainWindow):
         self.page_size = 10
         self.all_records: List[FamilyRecord] = []
 
-        self._create_ui()
-        self._create_menu()
-        self._create_toolbar()
-        self._create_statusbar()
+        self._create_ui()#таблица, кнопки навигации
+        self._create_menu()#Файл, Записи
+        self._create_toolbar()#панель инструментов (с кнопками быстрого доступа)
+        self._create_statusbar()#строка состояния
 
     def _create_ui(self):
         central = QWidget()
@@ -40,9 +52,9 @@ class MainWindow(QMainWindow):
             "ФИО студента", "ФИО отца", "Заработок отца",
             "ФИО матери", "Заработок матери", "Братьев", "Сестер"
         ])
-        self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.table.setSelectionBehavior(QAbstractItemView.SelectRows)#выделяет всю строку, а не отдельную ячейку
         self.table.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.table.horizontalHeader().setStretchLastSection(True)
+        self.table.horizontalHeader().setStretchLastSection(True)#посл столбец растягивается, чтоб заполнить оставшееся пространство
 
         self.table.setColumnWidth(0, 250)
         self.table.setColumnWidth(1, 220)
@@ -54,21 +66,21 @@ class MainWindow(QMainWindow):
 
         layout.addWidget(self.table)
 
-        page_layout = QHBoxLayout()
-
-        self.btn_first = QPushButton("⏮ Первая")
-        self.btn_prev = QPushButton("◀ Назад")
+        page_layout = QHBoxLayout()#горизонтальный менеджер
+#кнопки навигации
+        self.btn_first = QPushButton("Первая")
+        self.btn_prev = QPushButton("Назад")
         self.lbl_page = QLabel("Страница 1 из 1")
-        self.btn_next = QPushButton("Вперед ▶")
-        self.btn_last = QPushButton("Последняя ⏭")
-
+        self.btn_next = QPushButton("Вперед")
+        self.btn_last = QPushButton("Последняя")
+#Спинбокс для выбора количества записей на странице
         self.spin_page_size = QSpinBox()
         self.spin_page_size.setRange(5, 50)
         self.spin_page_size.setValue(10)
         lbl_size = QLabel("Записей на странице:")
 
         self.lbl_total = QLabel("Всего записей: 0")
-
+          #добавление всех элементов в горизонтальный менеджер
         for w in [self.btn_first, self.btn_prev, self.lbl_page,
                   self.btn_next, self.btn_last, lbl_size,
                   self.spin_page_size, self.lbl_total]:
@@ -88,7 +100,7 @@ class MainWindow(QMainWindow):
         self.action_save.setShortcut("Ctrl+S")
         file_menu.addAction(self.action_save)
 
-        file_menu.addSeparator()
+        file_menu.addSeparator()# hfpltkbnmkm ujhbpjyn kbybz
 
         self.action_exit = QAction("Выход", self)
         self.action_exit.setShortcut("Ctrl+Q")
@@ -114,7 +126,7 @@ class MainWindow(QMainWindow):
 
     def _create_toolbar(self):
         toolbar = QToolBar("Панель инструментов")
-        toolbar.setMovable(False)
+        toolbar.setMovable(False)#нельзя перетаскивать мышкой
         self.addToolBar(toolbar)
 
         toolbar.addAction(self.action_add)
@@ -126,7 +138,7 @@ class MainWindow(QMainWindow):
 
     def _create_statusbar(self):
         self.statusBar().showMessage("Готов к работе")
-
+    #обновление отображения
     def update_display(self, records: List[FamilyRecord]):
         self.all_records = records
         total = len(records)
@@ -134,12 +146,12 @@ class MainWindow(QMainWindow):
 
         if self.current_page >= total_pages:
             self.current_page = max(0, total_pages - 1)
-
+         #диапозон для текущей страницы
         start = self.current_page * self.page_size
         end = min(start + self.page_size, total)
         page_records = records[start:end]
 
-        self.table.setRowCount(len(page_records))
+        self.table.setRowCount(len(page_records))#количество строк в таблице = количество записей на странице
 
         for row, record in enumerate(page_records):
             self.table.setItem(row, 0, QTableWidgetItem(record.student_fio))
@@ -149,10 +161,10 @@ class MainWindow(QMainWindow):
             self.table.setItem(row, 4, QTableWidgetItem(f"{record.mother_earnings:.2f}"))
             self.table.setItem(row, 5, QTableWidgetItem(str(record.brothers_count)))
             self.table.setItem(row, 6, QTableWidgetItem(str(record.sisters_count)))
-
+           #Обновление меток с информацией
         self.lbl_page.setText(f"Страница {self.current_page + 1} из {total_pages}")
         self.lbl_total.setText(f"Всего записей: {total}")
-
+          #Включение/выключение кнопок навигации
         self.btn_first.setEnabled(self.current_page > 0)
         self.btn_prev.setEnabled(self.current_page > 0)
         self.btn_next.setEnabled(self.current_page < total_pages - 1)

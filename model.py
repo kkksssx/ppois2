@@ -17,14 +17,14 @@ class FamilyRecord:
     brothers_count: int = 0
     sisters_count: int = 0
 
-    def is_empty(self) -> bool:
+    def is_empty(self) -> bool: #проверка на полностью пустое зн
         return not (self.student_fio.strip() or self.father_fio.strip() or self.mother_fio.strip())
 
     def to_dict(self) -> dict:
-        return asdict(self) #рекурс преобр записи в словарь
+        return asdict(self) #рекурс преобр записецй в словарь
 
     @classmethod
-    def from_dict(cls, data: dict) -> 'FamilyRecord':
+    def from_dict(cls, data: dict) -> 'FamilyRecord': # восстанавление из словаря
         return cls(
             student_fio=str(data.get('student_fio', '')),
             father_fio=str(data.get('father_fio', '')),
@@ -46,7 +46,7 @@ class SAXHandler(sax.ContentHandler):    #насл. от базового кла
 
     def startElement(self, name, attributes):
         self.current_tag = name
-        self.current_data = ""
+        self.current_data = "" # обновляем накопитель для нового тега
         if name == "record":
             self.current_record = {}
 
@@ -56,7 +56,7 @@ class SAXHandler(sax.ContentHandler):    #насл. от базового кла
                 record = FamilyRecord.from_dict(self.current_record)
                 if not record.is_empty():
                     self.records.append(record)
-        elif name in ['student_fio', 'father_fio', 'mother_fio',
+        elif name in ['student_fio', 'father_fio', 'mother_fio'# если закрывается один из тег-полей
                       'father_earnings', 'mother_earnings',
                       'brothers_count', 'sisters_count']:
             self.current_record[name] = self.current_data.strip()
@@ -67,10 +67,11 @@ class SAXHandler(sax.ContentHandler):    #насл. от базового кла
 
 
 class DataManager:
+    #управление записями
     def __init__(self):
         self.records: List[FamilyRecord] = []
         self.data_dir = Path("data")
-        self.data_dir.mkdir(exist_ok=True)
+        self.data_dir.mkdir(exist_ok=True)#не создаём папку, если уже есть
         self.auto_file = self.data_dir / "autosave.json"
 
 
@@ -84,7 +85,7 @@ class DataManager:
         if not indices:
             return 0
         deleted = 0
-        for i in sorted(indices, reverse=True):
+        for i in sorted(indices, reverse=True):#сортируем до удаления от бол к мен чтобы не смещать индексы
             if 0 <= i < len(self.records):
                 del self.records[i]
                 deleted += 1
@@ -100,8 +101,8 @@ class DataManager:
         return [r for r in self.records if self._matches(r, conditions)]
 
     def _matches(self, record: FamilyRecord, conditions: dict) -> bool:
-        """Проверка соответствия записи условиям"""
-        for field, value in conditions.items():
+        #проверка соответствия записи условиям
+        for field, value in conditions.items():#возвращаем пары(поле, значение) из условий
             if value is None or value == "" or value == 0:
                 continue
 
@@ -125,16 +126,16 @@ class DataManager:
                     return False
 
             elif field.endswith('_earnings'):
-                if isinstance(value, tuple):
+                if isinstance(value, tuple):#является ли условие кортежом (диапозон зп)
                     min_val, max_val = value
                     if min_val is not None and record_value < min_val:
                         return False
                     if max_val is not None and record_value > max_val:
                         return False
                 else:
-                    if abs(record_value - float(value)) > 0.01:
+                    if abs(record_value - float(value)) > 0.01:#проверка на равенство с погрешностью в 0.01 копейка
                         return False
-            else:
+            else: #братья, сестры
                 if record_value != int(value):
                     return False
 
@@ -148,9 +149,9 @@ class DataManager:
             record_elem = doc.createElement("record")
             root.appendChild(record_elem)
             for field_name, value in record.to_dict().items():
-                field_elem = doc.createElement(field_name)
-                field_elem.appendChild(doc.createTextNode(str(value)))
-                record_elem.appendChild(field_elem)
+                field_elem = doc.createElement(field_name)#созд элем с именем поля
+                field_elem.appendChild(doc.createTextNode(str(value)))# созд текстузелсо значением поля и добавляем в элемент
+                record_elem.appendChild(field_elem)#элемент поля внутрь записи
         with open(filepath, 'w', encoding='utf-8') as f:
             doc.writexml(f, indent="  ", addindent="  ", newl="\n", encoding="UTF-8")
 
@@ -159,11 +160,11 @@ class DataManager:
             raise FileNotFoundError(f"Файл не найден: {filepath}")
         parser = sax.make_parser()
         handler = SAXHandler()
-        parser.setContentHandler(handler)
+        parser.setContentHandler(handler)#парсер может вызывать методы handler
         parser.parse(filepath)
         if not handler.records:
             raise ValueError("В файле нет записей")
-        self.records.extend(handler.records)
+        self.records.extend(handler.records)#добавляет загруженные записи в текущий список
         self._save_auto()
         return len(handler.records)
 
